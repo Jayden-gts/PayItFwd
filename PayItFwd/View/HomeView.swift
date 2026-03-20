@@ -9,30 +9,24 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        
-        TabView {
-            HomeView()
-                .tabItem {
-                    Label("Home", systemImage: "house")
+        NavigationStack{
+            VStack {
+                ScrollView {
+                    NavigationLink(destination: UserProfile()) {
+                                        ServiceBubble()
+                                    }
+                    NavigationLink(destination: UserProfile()) {
+                                        ServiceBubble()
+                                    }
+                    NavigationLink(destination: UserProfile()) {
+                                        ServiceBubble()
+                                    }
                 }
-            
-            
-        }
-        
-        VStack {
-            ScrollView {
-                Bubble()
-                Bubble()
-                Bubble()
             }
-            .padding()
-            
         }
-        
-        
     }
 }
 
 #Preview {
-    HomeView()
+    MainTabView()
 }

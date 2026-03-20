@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 import Foundation
 
-struct Bubble: View {
+struct ServiceBubble: View {
     var body: some View {
         Group{
             Color.secondary
