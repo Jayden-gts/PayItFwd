@@ -9,11 +9,11 @@ import SwiftUI
 
 @main
 struct PayItFwdApp: App {
+    @StateObject private var listingViewModel = ServiceListingViewModel()
+
     var body: some Scene {
         WindowGroup {
-            NavigationStack{
                 MainTabView()
-            }
-        }
+            .environmentObject(listingViewModel)        }
     }
 }
