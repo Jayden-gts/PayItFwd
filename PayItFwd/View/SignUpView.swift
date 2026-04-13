@@ -8,7 +8,6 @@
 import SwiftUI
 import Combine
 
-
 struct SignUpView: View {
     @ObservedObject var authViewModel: AuthViewModel
     @Environment(\.dismiss) var dismiss
@@ -45,7 +44,6 @@ struct SignUpView: View {
 
                 VStack(spacing: 16) {
 
-                    // Name
                     VStack(alignment: .leading, spacing: 6) {
                         Text("Full Name")
                             .font(.footnote)
@@ -63,7 +61,6 @@ struct SignUpView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
 
-                    // Email
                     VStack(alignment: .leading, spacing: 6) {
                         Text("Email")
                             .font(.footnote)
@@ -83,7 +80,6 @@ struct SignUpView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
 
-                    // Password
                     VStack(alignment: .leading, spacing: 6) {
                         Text("Password")
                             .font(.footnote)
@@ -112,7 +108,6 @@ struct SignUpView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
 
-                    // Confirm Password
                     VStack(alignment: .leading, spacing: 6) {
                         Text("Confirm Password")
                             .font(.footnote)
@@ -129,7 +124,6 @@ struct SignUpView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
 
-                    // Error
                     if let error = errorMessage {
                         HStack(spacing: 6) {
                             Image(systemName: "exclamationmark.circle.fill")
@@ -142,7 +136,6 @@ struct SignUpView: View {
                 }
                 .padding(.horizontal)
 
-                // Sign Up button
                 Button {
                     signUp()
                 } label: {
@@ -157,7 +150,6 @@ struct SignUpView: View {
                 }
                 .padding(.horizontal)
 
-                // Back to login
                 HStack(spacing: 4) {
                     Text("Already have an account?")
                         .font(.footnote)
@@ -195,11 +187,7 @@ struct SignUpView: View {
             return
         }
 
-        // Account created — log them straight in
         authViewModel.isLoggedIn = true
         dismiss()
     }
 }
-
-
-
