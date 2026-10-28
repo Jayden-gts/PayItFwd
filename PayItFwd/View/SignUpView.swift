@@ -2,7 +2,6 @@
 //  SignUpView.swift
 //  PayItFwd
 //
-//  Created by Laiba Ahmed on 2026-04-12.
 //
 
 import SwiftUI
