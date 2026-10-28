@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainTabView: View {
     @EnvironmentObject var listingViewModel: ServiceListingViewModel
+    @State private var selectedTab = 0
 
     init() {
         let appearance = UITabBarAppearance()
@@ -28,7 +29,7 @@ struct MainTabView: View {
     }
 
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             NavigationStack {
                 HomeView()
                     .navigationTitle("Home")
@@ -37,6 +38,7 @@ struct MainTabView: View {
                 Image(systemName: "house.fill")
                 Text("Home")
             }
+            .tag(0)
 
             NavigationStack {
                 ChartView()
@@ -46,6 +48,7 @@ struct MainTabView: View {
                 Image(systemName: "chart.bar.fill")
                 Text("Chart")
             }
+            .tag(1)
 
             NavigationStack {
                 SearchView()
@@ -55,6 +58,14 @@ struct MainTabView: View {
                 Image(systemName: "magnifyingglass")
                 Text("Search")
             }
+            .tag(2)
+
+            InboxView()   // has its own NavigationStack
+                .tabItem {
+                    Image(systemName: "message.fill")
+                    Text("Messages")
+                }
+                .tag(3)
 
             NavigationStack {
                 UserProfile()
@@ -64,7 +75,9 @@ struct MainTabView: View {
                 Image(systemName: "person.fill")
                 Text("Profile")
             }
+            .tag(4)
         }
+        .environment(\.showLeaderboard, { selectedTab = 1 })
     }
 }
 
